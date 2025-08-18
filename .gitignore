@@ -1,0 +1,57 @@
+# ------------------------------
+# Build and Dependency Folders
+# ------------------------------
+target/
+build/
+out/
+.gradle/
+.mvn/
+dependency-reduced-pom.xml
+
+# ------------------------------
+# Compiled Java Classes & Packages
+# ------------------------------
+*.class
+*.jar
+*.war
+*.ear
+
+# ------------------------------
+# IDE / Editor Specific
+# ------------------------------
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# ------------------------------
+# Logs & Temp files
+# ------------------------------
+*.log
+*.tmp
+*.swp
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# Spring Boot Configs (Sensitive)
+# ------------------------------
+*.env
+application-*.yml
+application-*.properties
+
+# ------------------------------
+# Others
+# ------------------------------
+# Ignore local test db files
+*.db
+*.h2.db
