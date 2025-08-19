@@ -7,9 +7,9 @@ first  SpringApplication.run() method start IOC Container now IOC container perf
 so first component scanning perform at com.practise.SB_Autowired_Concept_1 for start class i.e create bean for start class
 due to annotation @springbootApplication(which  already contain annotation @enableAutoConfigurable + Component+ """) so Start class is
 spring bean so its object created by IOC by using component scanning
-2. Now IOC scan sub-package from top to bottom so userDao is first sub-base-package and it contain UserDao which is spring bean due to @Reporsitory annotation
+2. Now IOC scan sub-package from top to bottom in alphabetically order(i.e. UserService folder comes first alphabetically  instead of XuserDao folder) so userDao is first sub-base-package and it contain UserDao which is spring bean due to @Reporsitory annotation
    so IOC container use default constructor(if no any constructor) for creating object for dao bean class.
-3. Now IOC scan sub-package from top to bottom i.e UserService is 2nd sub-base-package which contain
+3. Now IOC scan sub-package top to bottom in alphabetically order(i) i.e UserService is 2nd sub-base-package which contain
    parametrized constructor so IOC use parametrized constructor for object creation of userService but
    UserService class constructor expect UserDao object as a parameter , so Ioc having the responsibility to pass
    UserDao object to UserService constructor so here we inject a  object into a class using constructor which

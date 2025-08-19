@@ -1,7 +1,8 @@
 package com.practise.SB_Autowired_Concept_1.UserService;
 
 
-import com.practise.SB_Autowired_Concept_1.UserDao.UserDao;
+import com.practise.SB_Autowired_Concept_1.XUserDao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,13 +10,20 @@ public class UserService {
 
     private UserDao userDao;
 
+    @Autowired
     UserService(UserDao userDao){
-        System.out.println("------Represent userservice as spring bean using @Service annotation---");
+        System.out.println("------Represent userservice as spring bean using @Service annotation so IOC will create object" +
+                "for this UserService Class---");
 
         /*Performing Dependency injection with the help of constructor injection*/
         this.userDao = userDao;
 
 
+    }
+
+    UserService(){
+        System.out.println("------------------Default constructor help IOC for creating UserService object if @Autowired annotation" +
+                "is not on parametrized constructor and if @Autowired annotation is their in that case we force IOC use paramerized constructor for object creation------------");
     }
 
     public void getRegisterUser(){
