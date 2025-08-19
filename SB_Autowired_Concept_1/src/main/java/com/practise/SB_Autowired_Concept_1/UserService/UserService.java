@@ -22,7 +22,7 @@ public class UserService {
     }
 
     UserService(){
-        System.out.println("------------------Default constructor help IOC for creating UserService object if @Autowired annotation" +
+        System.out.println("------------------Default 0-params constructor help IOC for creating UserService object if @Autowired annotation" +
                 "is not on parametrized constructor and if @Autowired annotation is their in that case we force IOC use paramerized constructor for object creation------------");
     }
 
