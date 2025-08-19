@@ -17,7 +17,9 @@ spring bean so its object created by IOC by using component scanning
    UserService constructor in that case target object creation is perform first .Note if we have default constructor
    in userService then IOC use default constructor for userService object creation because default constructor having
    high precedence in that case we have to write @Autowired annotation which is mandatory i.e to force IOC container
-   to create userService object from parameterized constructor only.
+   to create userService object from parameterized constructor only this process known as DI(dependency injection).
+   for DI class must be spring bean.(like UserDao and UserService both are spring bean i.e if we remove @Repository annotation
+from UserDao in that case we get error at creation of object by IOC i.e error UserService.UserService required a bean of type 'com.practise.SB_Autowired_Concept_1.XUserDao.UserDao' that could not be found.)
 
 4.after component scanning all object are created by IOC for all spring beans, now run method return IOC container
 refernce i.e ConfigurableApplicationContext ctx =  SpringApplication.run(SbAutowiredConcept1Application.class, args);
