@@ -9,7 +9,7 @@ public class ReportGenerateService {
 
     private IReport iReport;
     ReportGenerateService(@Qualifier("excel") IReport iReport){
-        System.out.println("------------Autowiring DI represent using 1-params constructor-------------");
+        System.out.println("------------ ReportGenerateService constructor , perform Autowiring DI represent using 1-params constructor-------------");
         this.iReport = iReport;
     }
 
