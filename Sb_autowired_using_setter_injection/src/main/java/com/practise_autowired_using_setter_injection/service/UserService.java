@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService {  //target bean class
 
     UserService(){
         System.out.println("---------Using 0-params constructor IOC create its object " +
@@ -22,16 +22,19 @@ public class UserService {
 
 
     @Autowired
-    public void setEmailUtil(EmailUtil emailUtil) {
+    //known as setter injection
+    public void setEmailUtil(EmailUtil emailUtil) { //target bean setter method and EmailUtil is dependent bean
         this.emailUtil = emailUtil;
     }
 
     @Autowired
-    public void setPwdUtil(PwdUtil pwdUtil) {
+    //known as setter injection
+    public void setPwdUtil(PwdUtil pwdUtil) { //target bean  setter method and PwdUtil is dependent bean
         this.pwdUtil = pwdUtil;
     }
 
     @Autowired
+        //known as constructor injection
     UserService(UserDao userDao){
         System.out.println("---------Using 1-params constructor IOC create its object " +
                 "Represent UserService as spring bean due to @Service annotation ");
