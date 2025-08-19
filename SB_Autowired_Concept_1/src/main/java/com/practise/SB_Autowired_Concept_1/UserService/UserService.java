@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService { //userservice act as target class
 
-    private UserDao userDao;
+    private UserDao userDao; //act as dependent bean
 
     @Autowired
     UserService(UserDao userDao){
