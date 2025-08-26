@@ -18,6 +18,9 @@ public class CurdOperationApplication {
 	public static void main(String[] args) {
 
     ConfigurableApplicationContext ctx =  SpringApplication.run(CurdOperationApplication.class, args);
+    /*Here spring data JPA use inbuilt library of jdk at run time create a proxy
+    * class whose implement method which expose by crudRepository and inherited by EmployeeRepositoryInterface
+    * but interfae can't implement method only class implement so proxy class implement at run time those method*/
     EmployeeRepository employeeRepository = ctx.getBean(EmployeeRepository.class);
         System.out.println("++++++++++++ Proxy class whose implement crudRepository interface" + employeeRepository.getClass().getName());
 
