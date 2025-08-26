@@ -25,13 +25,13 @@ public class CurdOperationApplication {
        emp1.setEmpId(3);
         emp1.setEmpName("EMP" + "test123");
         emp1.setEmpSalary(20000l);
-//        employeeRepository.save(emp1); to save on record
+//        employeeRepository.save(emp1); to save only one record
 
         Employee emp2 = new Employee();
         emp2.setEmpId(4);
         emp2.setEmpName("EMP" + "new12");
         emp2.setEmpSalary(20000l);
-//        employeeRepository.save(emp2);
+//        employeeRepository.save(emp2); to save only one record
 
         List<Employee> emplist = new ArrayList<Employee>();
         emplist.add(emp1);
