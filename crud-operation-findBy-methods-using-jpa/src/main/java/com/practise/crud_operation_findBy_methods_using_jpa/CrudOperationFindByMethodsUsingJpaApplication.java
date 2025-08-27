@@ -5,6 +5,7 @@ import com.practise.crud_operation_findBy_methods_using_jpa.repository.ContactRe
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,10 @@ import java.util.List;
 @SpringBootApplication
 public class CrudOperationFindByMethodsUsingJpaApplication {
 
-	public static void main(String[] args) {
-	ConfigurableApplicationContext ctx =  SpringApplication.run(CrudOperationFindByMethodsUsingJpaApplication.class, args);
+    public static void main(String[] args) {
+        ConfigurableApplicationContext ctx = SpringApplication.run(CrudOperationFindByMethodsUsingJpaApplication.class, args);
         ContactRepository bean = ctx.getBean(ContactRepository.class);
+
 
 
         /* ------ Start to Save 3 records into contact table by saveAll() method*/
@@ -37,20 +39,18 @@ public class CrudOperationFindByMethodsUsingJpaApplication {
 
         Iterable<Contact> contacts = bean.saveAll(contactList);
 
-        contacts.forEach(contact ->{
+        contacts.forEach(contact -> {
             System.out.println("++++++++++++++saved contact++++++++++" + contact);
         });
 
         /* End ----- Save 3 records into contact table by saveAll() method -- */
 
-        Contact contact = bean.findByContactName("Nick");
-        System.out.println("+++++++find record based on contactName+++++++++++" + contact);
+        Contact contactByName = bean.findByContactName("Nick");
+        System.out.println("+++++++find record based on contactName+++++++++++" + contactByName);
 
-        Contact contactbasedOnMulitpleCondition =  bean.findByContactNameAndContactNumber("Apurva",9582118489l);
+        Contact contactbasedOnMulitpleCondition = bean.findByContactNameAndContactNumber("Apurva", 9582118489l);
         System.out.println("+++++++find record based on contactName And Number +++++++++++" + contactbasedOnMulitpleCondition);
 
 
-
     }
-
 }
