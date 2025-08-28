@@ -13,4 +13,6 @@ public interface ContactRepository extends CrudRepository<Contact, Serializable>
     Contact findByContactName(String contactName);
     /*Select * from contact where contact_name="contactName" and contact_number = "contactNumber"*/
     Contact findByContactNameAndContactNumber(String contactName,Long contactNumber);
+
+    Contact.findByContactName
 }
