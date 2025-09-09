@@ -31,10 +31,7 @@ public class Application {
         List<Employee> byEmpNameIn = bean.findByEmpNameIn(Arrays.asList("nick", "alisha"));
         System.out.println("+++++++++++++ find employee record whose names in the given" +  byEmpNameIn);
 
-        byEmpNameIn.forEach(employee -> {
-            System.out.println("");
-            System.out.println(employee);
-        });
+
 
 
         Double salary = bean.findEmpSalaryByEmpName("nick");
