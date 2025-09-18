@@ -19,10 +19,10 @@ public class EmployeeManageService {
 
     }
 
-    @Transactional(rollbackFor = Exception.class)
+@Transactional(rollbackFor = Exception.class)
     public void saveEmployeeRecords(){
         employeeService.saveEmployeeRecord();
-        int c = 10/0;
+       int c = 10/0; /* after commented or without commented */
         employeeAddressService.saveEmployeeAddressRecord();
     }
 }

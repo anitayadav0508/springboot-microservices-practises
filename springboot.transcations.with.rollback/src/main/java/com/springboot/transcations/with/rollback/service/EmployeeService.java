@@ -8,9 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EmployeeService {
+    private final EmployeeRepository employeeRepository;
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
 
 

@@ -3,6 +3,7 @@ package com.springboot.transcations.with.rollback.service;
 
 import com.springboot.transcations.with.rollback.entity.Address;
 import com.springboot.transcations.with.rollback.repository.EmployeeAddressRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class EmployeeAddressService {
 
 
-    private EmployeeAddressRepository employeeAddressRepository;
+    private final EmployeeAddressRepository employeeAddressRepository;
+
+    public EmployeeAddressService(EmployeeAddressRepository employeeAddressRepository) {
+        this.employeeAddressRepository = employeeAddressRepository;
+    }
 
 
 
