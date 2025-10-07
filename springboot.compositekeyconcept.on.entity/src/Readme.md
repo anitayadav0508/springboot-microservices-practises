@@ -12,7 +12,7 @@
 
              # If the primary key is composite (multiple fields), JPA needs a way to compare them.That’s where equals() comes in — it ensures that:
 
-               # new Compositekey(1, 100).equals(new Compositekey(1, 100)) // ✅ true
+               # new Compositekey(1, 100).equals(new Compositekey(1, 100)) //  true
             # Without equals(), Java would use the default Object.equals(), which compares memory references — so even if orderId and productId are the same, they’d be treated as different objects.
 
 # 2.  Collections and Caching
