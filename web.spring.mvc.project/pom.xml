@@ -31,10 +31,10 @@
         </dependency>
 
         <!-- JSP & JSTL -->
-       <!-- <dependency>
+       <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>-->
+        </dependency>
 
 
         <!-- Optional: auto restart during dev -->
