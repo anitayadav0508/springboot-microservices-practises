@@ -22,9 +22,10 @@
 </head>
 <body>
     <h2>Product Detail</h2>
-    <b>${product.name}</b><br/>
+    <b>${product.name}</b><br/> <%-- produc.name using getName() method of product pojo class --%>
       <b>${product.productId}</b><br/>
         <b>${product.price}</b><br/>
+        <a href="/">Home</a>
 
 </body>
 </html>

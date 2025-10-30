@@ -21,11 +21,14 @@
     </style>
 </head>
 <body>
-    <h2>Book Data</h2>
-   <b> BookName: ${bookname}<br/></b>
-    <b> AuthorName: ${author} <br/></b>
-    <b> PublishedDate: ${published}<br/></b>
-    <a href="/">Home</a>
+
+
+  <a href="book">Get Book Data</a><br> <%--  this is a url pattern which binding to a method of controller in this case
+                                         /book is url pattern which bind to displayBookData() method of book controller --%>
+
+  <a href="product">Get Product Data</a>
+  <%--  this is a url pattern which binding to a method of controller in this case
+                                           /product is url pattern which bind to productDetails() method of product controller --%>
 
 </body>
 </html>
