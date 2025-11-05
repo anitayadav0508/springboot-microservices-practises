@@ -1,0 +1,170 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Product Form</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                body {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                }
+
+                .container {
+                    background: white;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    padding: 40px;
+                    max-width: 600px;
+                    width: 100%;
+                }
+
+                h2 {
+                    color: #333;
+                    margin-bottom: 30px;
+                    text-align: center;
+                    font-size: 24px;
+                }
+
+                .form-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                .form-table td {
+                    padding: 15px 10px;
+                    vertical-align: middle;
+                }
+
+                .form-table td:first-child {
+                    width: 35%;
+                    font-weight: 600;
+                    color: #555;
+                    text-align: right;
+                    padding-right: 20px;
+                }
+
+                .form-table td:last-child {
+                    width: 65%;
+                }
+
+                .form-table input[type="text"],
+                .form-table input[type="number"] {
+                    width: 100%;
+                    padding: 12px;
+                    border: 2px solid #e0e0e0;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    transition: border-color 0.3s;
+                    font-family: inherit;
+                }
+
+                .form-table input[type="text"]:focus,
+                .form-table input[type="number"]:focus {
+                    outline: none;
+                    border-color: #667eea;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
+
+                .form-table input[type="submit"],
+                .form-table input[type="reset"] {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 12px 30px;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                    margin-right: 10px;
+                }
+
+                .form-table input[type="submit"]:hover,
+                .form-table input[type="reset"]:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+                }
+
+                .form-table input[type="submit"]:active,
+                .form-table input[type="reset"]:active {
+                    transform: translateY(0);
+                }
+
+                .form-table input[type="reset"] {
+                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                }
+
+                .button-cell {
+                    text-align: center;
+                }
+
+                .button-cell td {
+                    text-align: center;
+                }
+
+                @media (max-width: 600px) {
+                    .form-table td:first-child {
+                        width: 100%;
+                        text-align: left;
+                        padding-right: 10px;
+                        padding-bottom: 5px;
+                    }
+
+                    .form-table td:last-child {
+                        width: 100%;
+                    }
+
+                    .form-table tr {
+                        display: block;
+                        margin-bottom: 15px;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="container">
+                <h2>Product Form</h2>
+                <form:form action="saveProductDetails" method="POST" modelAttribute="product">
+                    <table class="form-table">
+                        <%-- Product ID is auto-generated by sequence, so it's not included in the form --%>
+                            <tr>
+                                <td>Product Name:</td>
+                                <td>
+                                    <form:input path="productName" type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Product Price:</td>
+                                <td>
+                                    <form:input path="productPrice" type="number" step="0.01" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="button-cell">
+                                    <input type="submit" value="Save" />
+                                    <input type="reset" value="Reset" />
+                                </td>
+                            </tr>
+                    </table>
+                </form:form>
+            </div>
+        </body>
+
+        </html>

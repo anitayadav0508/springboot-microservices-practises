@@ -36,7 +36,7 @@
  # view name or modelAndView object like in bookController and productController and indexController
  # both return logical view name either  by return string or modelAndView object.
 
-# 2. if we return insurance object and annotation is  controller then dispatcher servlet expect logical view
+# 2. if we return insurance object and annotation is @controller then dispatcher servlet expect logical view
  # name getting following error
        Whitelabel Error Page
       This application has no explicit mapping for /error, so you are seeing this as a fallback.
