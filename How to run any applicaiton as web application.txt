@@ -1,0 +1,36 @@
+--------------------------------------How to run any application as web application on tomcat server--------------------------------------------------
+ 1. use following depenedency
+    	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+2. your ServletInitializer must extends SpringBootServletInitializer
+
+public class ServletInitializer extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(Application.class);
+	}
+
+}	
+
+3. removed 	<scope>provide </scope> from tomcat dependency to run tomcat as extenral for deployed web application on tomcat 
+     <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+
+		</dependency>             
+		
+		
+		
+		Despite of this
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provide</scope>
+
+		</dependency>
+  ---------------------------------------------------------------------End here  to run any application as web application on tomcat server
