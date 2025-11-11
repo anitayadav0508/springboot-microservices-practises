@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        td:first-child {
+            width: 30%;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        input[type="radio"]:first-of-type {
+            margin-left: 0;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="reset"] {
+            background-color: #f44336;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #da190b;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add Book</h2>
+
+        <form th:action="@{/addBook}" th:object="${book}" method="POST">
+            <table>
+                <tr>
+                    <td>Book Name</td>
+                    <td>
+                        <input type="text" th:field="*{bookName}" />
+                        <span class="error" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Book Price</td>
+                    <td>
+                        <input type="text" th:field="*{bookPrice}" />
+                        <span class="error" th:if="${#fields.hasErrors('bookPrice')}" th:errors="*{bookPrice}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stock Available</td>
+                    <td>
+                        <input type="radio" th:field="*{stockStatus}" value="available" /> Yes
+                        <input type="radio" th:field="*{stockStatus}" value="not-available" /> No
+                        <span class="error" th:if="${#fields.hasErrors('stockStatus')}"
+                            th:errors="*{stockStatus}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="Reset" /></td>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

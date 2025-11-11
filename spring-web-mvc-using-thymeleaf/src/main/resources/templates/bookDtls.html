@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Book Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            display: inline-block;
+            margin-left: 10px;
+            color: #555;
+            font-weight: normal;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #333;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Book Details</h3>
+        
+        <span class="detail-label">Book ID :</span>
+        <p th:text="${book.bookId}"></p>
+        <br />
+        
+        <span class="detail-label">Book Name :</span>
+        <p th:text="${book.bookName}"></p>
+        <br />
+        
+        <span class="detail-label">Book Price:</span>
+        <p th:text="${book.bookPrice}"></p>
+        <br />
+        
+        <span class="detail-label">Stock :</span>
+        <p th:text="${book.stockStatus}"></p>
+        
+        <br />
+        <a th:href="@{/addBook}">Go Back</a>
+    </div>
+</body>
+</html>
