@@ -105,3 +105,11 @@ public class BookRestController {
 #  Quest:-  As the above rest api method is returning object,client will receive that object or not ?
 # Ans) Client will not receive that object due to interoperability. Rest api side  Message converters will be available to convert the object data into client 
 # understandable format.
+
+# Q-1)  How Rest api will understand client expected format for response data?
+# Ans:-  Client should send "Accept" header with expected response format in the request.
+  # Accept = application/xml
+  # Accept = application/json
+
+# We can write our want message convertor just like code in JavaToJsonConverator Java file.
+![img_6.png](img_6.png)
