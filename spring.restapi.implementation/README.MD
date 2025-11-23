@@ -91,6 +91,17 @@ public class WelcomeController {
 
 # Message Converters:- 
 # We are using objects for rest api methods development.
-# method parameter and method return type we are using as objects.
-# If we use objects then our methods will be loosely coupled with format.
+# method parameter and method return type we are using as objects.If we use objects then our methods will be loosely coupled with format.
+@RestController
+public class BookRestController {
 
+    @GetMapping("/book")
+    public Book getBookData(){
+       return  new Book(101,"The Complete Refernce",255.50);
+
+    }
+}
+
+#  Quest:-  As the above rest api method is returning object,client will receive that object or not ?
+# Ans) Client will not receive that object due to interoperability. Rest api side  Message converters will be available to convert the object data into client 
+# understandable format.
