@@ -1,15 +1,14 @@
 package com.spring.restapi.implementation.pojo;
 
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "book")
+
+
 public class Book {
-    @XmlElement
+
     private Integer bookId;
-    @XmlElement
+
     private String bookName;
-    @XmlElement
+
     private Double bookPrice;
 
     public Book() {
