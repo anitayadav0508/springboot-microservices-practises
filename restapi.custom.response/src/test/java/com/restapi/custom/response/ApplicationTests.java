@@ -1,4 +1,4 @@
-package com.dummy.project.implementation;
+package com.restapi.custom.response;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

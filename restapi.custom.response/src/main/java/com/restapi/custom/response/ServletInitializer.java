@@ -1,4 +1,4 @@
-package com.dummy.project.implementation;
+package com.restapi.custom.response;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
