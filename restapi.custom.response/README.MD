@@ -182,4 +182,11 @@ ans) Yes client application can send data to GET request method using Query Para
 # but rest api expect {application/json} data so get following error.
 # ![img_4.png](img_4.png)
 
+# consumes:- "consumes" attribute will represent in which format rest api method can take the input data.
+# content-type:- "content-type" header is used to represent in which format client is sending data to server in request body.
 
+# produces:- Represent method supporting response formats.
+# Accept:- Represent client expecting response format.
+
+# consumes:- Represent method supporting request formats.
+# content-Type:- Represent client sending request format.
