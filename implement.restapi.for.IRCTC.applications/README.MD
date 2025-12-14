@@ -1,4 +1,5 @@
 # In this project i am going to design restapi for IRCTC(Railway) APPLICATION
+# images are inside images folder check their please
 
 ![img.png](images/img.png)
 
