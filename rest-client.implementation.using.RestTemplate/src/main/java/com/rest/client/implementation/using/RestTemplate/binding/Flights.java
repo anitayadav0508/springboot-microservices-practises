@@ -11,7 +11,9 @@ import java.util.List;
  *   ]
  * }
  */
-public class FlightApiResponse {
+
+/*To represent a list of flight data we are using FlightApiResponse*/
+public class Flights {
     private List<Flight> flights;
 
     public List<Flight> getFlights() {

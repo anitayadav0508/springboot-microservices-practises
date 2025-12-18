@@ -13,6 +13,8 @@ package com.rest.client.implementation.using.RestTemplate.binding;
  *   "emptySeats": 0
  * }
  */
+
+/*To represent one flight data we are using Flight class*/
 public class Flight {
     private String code;
     private Double price;

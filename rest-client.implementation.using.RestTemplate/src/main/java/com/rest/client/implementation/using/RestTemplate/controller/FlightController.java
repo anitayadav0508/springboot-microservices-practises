@@ -1,6 +1,6 @@
 package com.rest.client.implementation.using.RestTemplate.controller;
 
-import com.rest.client.implementation.using.RestTemplate.binding.FlightApiResponse;
+import com.rest.client.implementation.using.RestTemplate.binding.Flights;
 import com.rest.client.implementation.using.RestTemplate.service.FlightClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,10 @@ public class FlightController {
     private FlightClient flightClient;
 
     @GetMapping("/flights")
-    public FlightApiResponse getFlights() {
-        ResponseEntity<FlightApiResponse> response = flightClient.invokeFlightApi();
+    public Flights getFlights() {
+       Flights response = flightClient.invokeFlightApi();
         if (response != null) {
-            return response.getBody();
+            return response;
         }
         return null;
     }

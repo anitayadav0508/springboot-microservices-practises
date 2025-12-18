@@ -46,6 +46,38 @@
 # My application is communicate with 3rd party api (like 3rd Party Quote Api/3rd Party Flight Api)so it is distributed application.Did we know in which technology 3rd party api is implemented ans is No but we able to access 3rd party api due to interoperability we get response in json format.
 # 
 # ------------------- Refer image3,image4  for this----------------------------
+
+# who's response of airline or 3rd party api is look like 
+{
+"flights": [{
+"airlineName": "United",
+"code": "CR38sd",
+"departureDate": "2015/03/20",
+"destination": "SFO",
+"emptySeats": 0,
+"origin": "MUA",
+"planeType": "Boeing 737",
+"price": 400.0
+}, {
+"airlineName": "United",
+"code": "ER451f",
+"departureDate": "2015/02/11",
+"destination": "LAX",
+"emptySeats": 52,
+"origin": "MUA",
+"planeType": "Boeing 737",
+"price": 345.99
+}, {
+"airlineName": "American",
+"code": "AA789x",
+"departureDate": "2015/04/15",
+"destination": "ORD",
+"emptySeats": 25,
+"origin": "JFK",
+"planeType": "Airbus A320",
+"price": 550.0
+}]
+}
 # Design image4 how will it implement
 
 # Just like an example
