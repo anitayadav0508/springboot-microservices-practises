@@ -2,6 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.request.PassengerRequest;
 import com.example.demo.response.TicketResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +31,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/irctc")
+@Tag(name = "IRCTC Ticket Booking", description = "APIs for booking, retrieving, updating, and cancelling train tickets")
 public class IRCTCController {
 
     // In-memory storage to simulate database
@@ -35,6 +41,11 @@ public class IRCTCController {
     // NON-IDEMPOTENT: POST - Creates a NEW ticket each time it's called
     // Calling POST 3 times = 3 different tickets created
     // ═══════════════════════════════════════════════════════════════════════════
+    @Operation(summary = "Book a new ticket", description = "Creates a new train ticket booking. NON-IDEMPOTENT: Each call creates a new ticket with unique PNR.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Ticket booked successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid request data")
+    })
     @PostMapping(value = "/bookticket",
             consumes = {"application/xml", "application/json"},
             produces = {"application/json", "application/xml"})
@@ -63,9 +74,15 @@ public class IRCTCController {
     // IDEMPOTENT: GET - Retrieves ticket by PNR
     // Calling GET 100 times = same ticket returned every time (no side effects)
     // ═══════════════════════════════════════════════════════════════════════════
+    @Operation(summary = "Get ticket by PNR", description = "Retrieves a ticket by its PNR number. IDEMPOTENT: Same result every time.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ticket found"),
+            @ApiResponse(responseCode = "404", description = "Ticket not found")
+    })
     @GetMapping(value = "/ticket/{pnr}",
             produces = {"application/json", "application/xml"})
-    public ResponseEntity<TicketResponse> getTicketByPnr(@PathVariable String pnr) {
+    public ResponseEntity<TicketResponse> getTicketByPnr(
+            @Parameter(description = "PNR number of the ticket") @PathVariable String pnr) {
         
         TicketResponse ticket = ticketDatabase.get(pnr);
         
@@ -82,6 +99,8 @@ public class IRCTCController {
     // IDEMPOTENT: GET - Retrieves all tickets
     // Safe operation - doesn't modify any data
     // ═══════════════════════════════════════════════════════════════════════════
+    @Operation(summary = "Get all tickets", description = "Retrieves all booked tickets. IDEMPOTENT: Safe read-only operation.")
+    @ApiResponse(responseCode = "200", description = "List of all tickets")
     @GetMapping(value = "/tickets",
             produces = "application/json")
     public ResponseEntity<Collection<TicketResponse>> getAllTickets() {
@@ -95,11 +114,16 @@ public class IRCTCController {
     // Calling PUT with same data multiple times = same final state
     // Example: Updating passenger name to "Rahul" 10 times = name is still "Rahul"
     // ═══════════════════════════════════════════════════════════════════════════
+    @Operation(summary = "Update ticket", description = "Updates an existing ticket. IDEMPOTENT: Same input produces same result.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ticket updated successfully"),
+            @ApiResponse(responseCode = "404", description = "Ticket not found")
+    })
     @PutMapping(value = "/ticket/{pnr}",
             consumes = {"application/json", "application/xml"},
             produces = {"application/json", "application/xml"})
     public ResponseEntity<TicketResponse> updateTicket(
-            @PathVariable String pnr,
+            @Parameter(description = "PNR number of the ticket to update") @PathVariable String pnr,
             @RequestBody PassengerRequest request) {
         
         TicketResponse existingTicket = ticketDatabase.get(pnr);
@@ -125,9 +149,15 @@ public class IRCTCController {
     // 1st call: Ticket deleted, returns 200 OK
     // 2nd call: Ticket already gone, returns 404 NOT FOUND (but end state is same)
     // ═══════════════════════════════════════════════════════════════════════════
+    @Operation(summary = "Cancel ticket", description = "Cancels/deletes a ticket. IDEMPOTENT: End state is always 'ticket deleted'.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ticket cancelled successfully"),
+            @ApiResponse(responseCode = "404", description = "Ticket not found")
+    })
     @DeleteMapping(value = "/ticket/{pnr}",
             produces = "application/json")
-    public ResponseEntity<String> cancelTicket(@PathVariable String pnr) {
+    public ResponseEntity<String> cancelTicket(
+            @Parameter(description = "PNR number of the ticket to cancel") @PathVariable String pnr) {
         
         TicketResponse removedTicket = ticketDatabase.remove(pnr);
         

@@ -1,7 +1,7 @@
 # In this project i am going to design restapi for IRCTC(Railway) APPLICATION
-# images are inside images folder check their please
 
-![img.png](images/img.png)
+# http://localhost:9090/swagger-ui.html( what different type of api with url is built with documentation)
+![img.png](img.png)
 
 # Procedure to follow to develop REST API
 # --------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
 # Interoperability :- interoperability means your API can accept and return data in multiple formats (like JSON and XML), allowing different clients (Java, Python, .NET, mobile apps) to interact with it regardless of their technology stack.
 
 
-# http://localhost:9092/bookticket
+# http://localhost:9090/bookticket
 # {
     "name": "John Doe",
     "dob": "1990-05-15",
@@ -76,7 +76,4 @@ PATCH	  ❌ No	 	        May have different effects based on current state
 # -> If our rest api method is responsible to delete existing record then we will bind our method to DELETE request method using @DeleteMapping annotation.
 
 # -> Both PUT and DELETE requests having request body.
-
-
-
 
