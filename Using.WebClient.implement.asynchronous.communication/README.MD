@@ -1,6 +1,41 @@
 # To run application use 
-http://localhost:9090/api/async/quote
-http://localhost:9090/api/sync/quote
+# Run first WebClient Project first
+# ---------------------QuoteRestController -------------------------------------------------------------------
+GET - http://localhost:9090/api/async/quote
+GET - http://localhost:9090/api/sync/quote
+
+# --------------------CustomerEventController-----------------------------------------------------------
+# Run Mono vs Flux project first 
+GET - http://localhost:9090/rest/flux
+GET - http://localhost:9090/rest/mono
+
+
+# -----------------------------------Ticket RestController-------------------------------------------------------
+# Run FIRST IRCTC application first
+POST - http://localhost:9090/ticket/async
+Payload -
+{
+"name": "PAWANYADAV97",
+"dob": "05-08-1992",
+"gender": "Male",
+"doj": "25-08-2026",
+"from": "chennai",
+"to": "HARYANA",
+"train": "PNR1234"
+}
+
+POST - http://localhost:9090/ticket/sync
+Payload -
+{
+"name": "PAWANYADAV97",
+"dob": "05-08-1992",
+"gender": "Male",
+"doj": "25-08-2026",
+"from": "chennai",
+"to": "HARYANA",
+"train": "PNR1234"
+}
+
 # what is webclient:- To consumes the rest api either in synchronous or asynchronous way.
 # Webclient is a api which introduce in spring 5.x version, which is used to communicate with servers. 
 # Q why webclient if we have already i market webclient:- Ans:- By WebClient we can perform both synchronous and Asynchronous communication. 

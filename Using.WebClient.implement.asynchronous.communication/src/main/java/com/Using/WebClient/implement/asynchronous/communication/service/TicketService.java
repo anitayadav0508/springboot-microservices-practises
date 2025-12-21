@@ -14,7 +14,7 @@ public class TicketService {
 
     // Sync method - blocks until response arrives
     public TicketResponse initiateTicketBookProcess(PassengerRequest requestData) {
-        String endPointUrl = "http://localhost:9090/api/irctc/bookticket";
+        String endPointUrl = "http://localhost:9092/api/irctc/bookticket";
         WebClient webClient = WebClient.create();
         TicketResponse ticket = webClient.post()
                 .uri(endPointUrl)
@@ -36,7 +36,7 @@ public class TicketService {
 
     // Async method using subscribe - returns TicketResponse via DeferredResult
     public DeferredResult<TicketResponse> initiateTicketBookProcessAsync(PassengerRequest requestData) {
-        String endPointUrl = "http://localhost:9090/api/irctc/bookticket";
+        String endPointUrl = "http://localhost:9092/api/irctc/bookticket";
         WebClient webClient = WebClient.create();
 
         DeferredResult<TicketResponse> deferredResult = new DeferredResult<>();

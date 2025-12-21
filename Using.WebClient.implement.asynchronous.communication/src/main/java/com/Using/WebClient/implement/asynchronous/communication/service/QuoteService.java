@@ -12,7 +12,7 @@ public class QuoteService {
 
     private final WebClient webClient;
     // Using ZenQuotes API - reliable and free
-    @Value("${quote.api.url}")
+    @Value("${quote.api.url}") // take rest api url from application.properties file
     private String apiUrl ;
 
     public QuoteService() {
