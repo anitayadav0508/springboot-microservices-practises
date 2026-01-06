@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: implement.many.to.many.employee.entity.with.project
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/manytomany
+    username: postgres
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+server:
+  port: 9090
+
+logging:
+  level:
+    org.hibernate.tool.schema: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE

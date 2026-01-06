@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: 1-Microservice-design-service-registry-knowns-as-Eureka-Server
+# server:
+ #  port: 8761 # this is default port for eureka server
+
+server:
+  port: 9090
+
+eureka:
+   client:
+     register-with-eureka: false
+
+ 

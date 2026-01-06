@@ -1,0 +1,16 @@
+# Refer image from images folder i.e Microservice_Architecture.png
+# Microservice are nothing but we are developing several rest api, API-1,API-2...API-4 , they are belong to one project, API-1 communicate with API-2 still they are of same project known as Interservice communication sometime our api will communicate with 3rd party api also that is called external service communication, all api will communicate with same database or different it depends on requirement whether api connect to same/different database along with that we have service registry and API Gateway .
+# what is the purpose of service registry :- Service registry is used to register all api's or service available to our application. Service registry is also an API's In spring boot we can use Eureka Server as Service Registry. Eureka server is one of the netflix library provided by spring cloud in that netflix library Eureka server is one component.Instead of writing security logic to all the api's we are going to use API Gateway. what is API Gateway:- Api Gateway manage all the api available in the application.API Gateway is going to act as front Gate for all the api's. Here Zuul Proxy act as API Gateway. When request come from UI , it go to API Gateway, Now API Gateway will decide whether to process this request or not by using Request filtering then API Gateway will talk to Service Registry then service registry talk to backend api. Backend api may will they have interservice communication or external service communication and they may connect with single database or multiple database.Is this fixed architecture for microservice.Ans:- No This is Generalized architecture which is follow by most of the people.
+# we already know how to develop api in microservice we will learn to develop service registry or API Gateway.
+
+# Service Registry:- The api which is going to  maintain api's details.The api which maintain the other api's details known as service registry.We are using eureka server as registry service. or service registry is the application which is used to register all the rest api available in our project.which one we are using as a service registry.in our application ? Eureka server is using as a service registry. Who will provide the Eureka server ?Ans:-  Spring cloud netflix library provide Eureka server which we are using as a service registry for our application.In short we can say that Eureka server is a component inside spring cloud netflix library or we can say that Eureka server provide by spring cloud netflix library. To enable eureka server for our application  we use annotation @EnableEurekaServer
+
+# For run this project :- http://localhost:8761
+
+# The application which is registered with eureka server known as Eureka Client.
+
+# Note:- Eureka sever itself register to service registry as client , do you want same application register itself as client ? Ans:- We should not register same application as client which act as eureka server or service registry. To do that we need to add below configuration in yml file.
+eureka:
+client:
+register-with-eureka: false
+# above property telling that don't register yourself with eureka you act as service registry don't act as client
