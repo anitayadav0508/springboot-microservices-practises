@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: GREET-API-02
+
+server:
+  port: 3333
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${DISCOVERY_URL:http://localhost:9090/eureka}

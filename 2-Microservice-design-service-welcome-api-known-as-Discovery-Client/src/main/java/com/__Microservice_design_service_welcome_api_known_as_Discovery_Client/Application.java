@@ -3,6 +3,7 @@ package com.__Microservice_design_service_welcome_api_known_as_Discovery_Client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableDiscoveryClient
 
@@ -10,6 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @EnableDiscoveryClient annotation is used to register this application with the service registry.
  * It is a Spring Cloud annotation that is used to register the application with the service registry.
    */
+@EnableFeignClients
 @SpringBootApplication
 public class Application {
 
