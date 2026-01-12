@@ -1,0 +1,45 @@
+server:
+  port: 4444
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: greet-route
+          uri: lb://GREET-API-02
+          predicates:
+            - Path=/ms/api1/**
+          filters:
+            - StripPrefix=2
+        - id: welcome-route
+          uri: lb://WELCOME-API
+          predicates:
+            - Path=/ms/api2/**
+          filters:
+            - StripPrefix=2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${DISCOVERY_URL:http://localhost:9090/eureka}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway,health
+  endpoint:
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: DEBUG
+    reactor.netty: DEBUG

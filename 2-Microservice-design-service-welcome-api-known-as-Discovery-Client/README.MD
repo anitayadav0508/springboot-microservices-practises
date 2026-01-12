@@ -85,4 +85,8 @@ http://192.168.1.101:1111/welcome/message
 
 # Advantage of service registry we are able to develop loosely coupled communication among one application to another application, without service registry can i configure the name of the application ? aNS:- No
 
+# To run application form API-Gateway use:- 
+http://localhost:4444/ms/api1/greet
+http://localhost:4444/ms/api2/welcome/message
+
 
