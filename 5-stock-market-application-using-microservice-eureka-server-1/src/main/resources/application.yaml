@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: 5-stock-market-application-using-microservice-eureka-server-1
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

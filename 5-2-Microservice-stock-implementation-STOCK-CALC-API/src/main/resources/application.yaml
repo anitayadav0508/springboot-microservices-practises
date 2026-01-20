@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: STOCK-CALC-API
+
+server:
+  port: 2222
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*D'

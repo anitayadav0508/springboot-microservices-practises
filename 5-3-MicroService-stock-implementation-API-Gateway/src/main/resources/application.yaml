@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: API-Gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            # Route for STOCK-PRICE-API (5-1-MicroService-market-application-stock-price-api-1)
+            - id: stock-price-api
+              uri: lb://STOCK-PRICE-API
+              predicates:
+                - Path=/price/**
+
+            # Route for STOCK-CALC-API (5-2-MicroService-stock-implementation-STOCK-CALC-API)
+            - id: stock-calc-api
+              uri: lb://STOCK-CALC-API
+              predicates:
+                - Path=/stock/calc/**
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
