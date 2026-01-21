@@ -13,7 +13,7 @@
 API-GATEWAY - > EUREKA SERVER -> RELEVANT-REST-API-MICROSERVICE -> NOW-REST-API-USING - USING FEIGN CLIENT -> USING-MICROSERVICE-NAME-WHICH-WAS-PROVIDED-TO-FEIGN-CLIENT ->COMMUNICATE-WITH-THAT-MICROSERVICE
 
 
-# Load balancing:- 
+#  --------------------------------------- Load balancing--------------------------------------------------------------
 
 # To reduce burden on one server we use load balancing, LBR(Load balancer) will decide which server will handle the which request if we have multiple server on which our application is running, LBR using following algorithm to decide which server handle the which request
 #  1) Round-robin :- It will follow sequence manner to handle the request like first request handle by first server and so on...

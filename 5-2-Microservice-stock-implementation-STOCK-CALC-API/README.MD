@@ -28,7 +28,7 @@
 
 # Here first request which handle by STOCK-PRICE-API which give company stock price value and while STOCK-CALC-API is using STOCK-PRICE-API which calculate total cost of stocks based on quantity & price of each stock of company. 
 
-# To run this application by using gateway how to run 
+# To run this application by using gateway (as gateway is running on 8080)how to run 
 # http://localhost:8080/price/HCL
 # http://localhost:8080/stock/calc/HCL/2
 

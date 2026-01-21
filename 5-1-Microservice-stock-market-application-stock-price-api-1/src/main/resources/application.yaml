@@ -21,8 +21,7 @@ spring:
   flyway:
     enabled: false
 
-server:
-  port: 1111
+
 
 logging:
   level:
