@@ -1,0 +1,13 @@
+{
+  "namespace": "com.kafka_schema_registry_with_avro.dto",
+  "type": "record",
+  "name": "Employee",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "firstName", "type": "string"},
+    {"name": "lastName", "type": "string"},
+
+    {"name": "emailId", "type": ["null", "string"], "default": null}
+
+  ]
+}
